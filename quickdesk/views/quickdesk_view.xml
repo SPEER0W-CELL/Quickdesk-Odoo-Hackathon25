@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_quickdesk_task_form" model="ir.ui.view">
+        <field name="name">quickdesk.task.form</field>
+        <field name="model">quickdesk.task</field>
+        <field name="arch" type="xml">
+            <form string="QuickDesk Task">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="progress"/>
+                        <field name="is_quest"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quickdesk_task_tree" model="ir.ui.view">
+        <field name="name">quickdesk.task.tree</field>
+        <field name="model">quickdesk.task</field>
+        <field name="arch" type="xml">
+            <tree string="QuickDesk Tasks">
+                <field name="name"/>
+                <field name="progress"/>
+                <field name="is_quest"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_quickdesk_task" model="ir.actions.act_window">
+        <field name="name">QuickDesk Tasks</field>
+        <field name="res_model">quickdesk.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_quickdesk_root" name="QuickDesk"/>
+    <menuitem id="menu_quickdesk_task" name="Tasks" parent="menu_quickdesk_root" action="action_quickdesk_task"/>
+</odoo>
